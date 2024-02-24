@@ -1,0 +1,57 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import TopNav from "../components/TopNav.astro";
+import ProjectCard2 from "../components/ProjectCard2.astro";
+---
+
+<MainLayout>
+    <div class="bg-black min-h-screen">
+        <TopNav current="projects"/>
+        <main class="bg-black text-white flex flex-col items-center">
+            <h1 class="text-6xl font-black mt-2 mb-10">Projects</h1>
+            <section
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-4 mx-8 h-full"
+          >
+          <ProjectCard2
+              title="Hverdagsmatte"
+              ,
+              src="hm.png"
+              ,
+              description={[
+                "A website about how math relates to everyday life. Includes articles, interactive tools and more.",
+                "Created with the Astro framework and deployed to Vercel.",
+                "Under continuous development"
+              ]}
+              ,
+              url="https://www.hverdagsmatte.no/"
+            />
+            <ProjectCard2
+              title="Colorful API"
+              ,
+              src="puzz.png"
+              ,
+              description={[
+                "An API that can, among other things, return random colors with color codes in RGB, HEX, HSL, and HSV, along with other information.",
+                "The API was written with Node JS and Express and is available through RapidAPI.",
+              ]}
+              ,
+              url="https://rapidapi.com/espenraugstad-kb1x5vXtGvU/api/colorful3"
+            />
+            <ProjectCard2
+              title="Stratify"
+              ,
+              src="stratify.png"
+              ,
+              description={[
+                "A project to explore the Web API of Spotify to handle playlists operations in bulk.",
+                "Originally made with Node and Express, deployed to Heroku. The latest version uses only Javascript and is deployed to a regular web host   .",
+              ]}
+              ,
+              url="https://stratify-app.com/"
+            />
+            
+          </section>
+        </main>
+    </div>
+    
+</MainLayout>

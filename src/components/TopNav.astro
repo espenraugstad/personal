@@ -1,0 +1,45 @@
+---
+const { current } = Astro.props;
+---
+
+<nav
+  class="w-full px-8 py-4 min-h-fit h-28 flex items-center justify-between text-white"
+>
+  <a href="/"
+    class="font-inter text-4xl font-black flex flex-col justify-center items-center"
+    id="logo"
+  >
+    <div>
+      Es<span class="text-pink-600">p</span>en
+    </div>
+    <div>Rau<span class="text-pink-600">g</span>stad</div>
+  </a>
+  <div>
+    <ul class="flex">
+      <li class=`${current === "home" ? "active" : ""}`>
+        <a href="/">Home</a>
+      </li>
+      <li class=`${current === "about" ? "active" : ""}`>
+        <a href="/about">About</a>
+      </li>
+      <li class=`${current === "projects" ? "active" : ""}`>
+        <a href="/projects">Projects</a>
+      </li>
+      <li class=`${current === "contact" ? "active" : ""}`>
+        <a href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  li {
+    @apply p-4  w-40 flex items-center justify-center text-white font-semibold;
+  }
+  li:hover {
+    @apply underline;
+  }
+  .active {
+    @apply bg-pink-600;
+  }
+</style>

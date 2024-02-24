@@ -1,0 +1,60 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+---
+
+<MainLayout>
+  <main>
+    <section class="flex items-center justify-center bg-pink-600 text-white w-full">
+        <span class="md:mr-40"><a href="/old/">Home</a></span>
+      <h1
+        class="text-3xl font-bold text-white text-center p-8 mx-4 "
+      >
+        Projects
+      </h1>
+      <span class="md:ml-40"><a href="/old/about">About</a></span>
+    </section>
+
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-flow-row gap-4 mx-8"
+    >
+      <ProjectCard
+        title="Colorful API"
+        ,
+        src="puzz.png"
+        ,
+        description={[
+          "An API that can, among other things, return random colors with color codes in RGB, HEX, HSL, and HSV, along with other information.",
+          "The API was written with Node JS and Express.",
+        ]}
+        ,
+        url="https://rapidapi.com/espenraugstad-kb1x5vXtGvU/api/colorful3"
+      />
+      <ProjectCard
+        title="Stratify"
+        ,
+        src="stratify.png"
+        ,
+        description={[
+          "A project to explore the Web API of Spotify to handle playlists operations in bulk.",
+          "Originally made with Node and Express, deployed to Heroku. The latest version uses only Javascript.",
+        ]}
+        ,
+        url="https://stratify-app.com/"
+      />
+      <ProjectCard
+        title="Hverdagsmatte"
+        ,
+        src="hm.png"
+        ,
+        description={[
+          "A website about how math relates to everyday life.",
+          "Created with the Astro framework and deployed to Vercel.",
+          "Still under development"
+        ]}
+        ,
+        url="https://www.hverdagsmatte.no/"
+      />
+    </section>
+  </main>
+</MainLayout>

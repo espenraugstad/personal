@@ -1,0 +1,46 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+	<main class="flex flex-col w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/selfie-3.jpg')] mt-0">
+		<div class="flex flex-col items-center justify-center w-80 absolute top-[10%] -translate-y-1/2">
+			<h1 class="text-3xl font-bold bg-pink-600 text-white text-center p-8 w-full">Espen Raugstad</h1>
+		</div>
+		<p class="bg-yellow-400 text-black p-8 w-fit bottom-[20%] translate-y-1/2 absolute">Educator, developer. Coding, design, web. Curios, lifelong learner. Click me to learn more.</p>
+		
+		<button id="me" class=" w-40 h-80 p-4 absolute top-1/4 left-1/4 sm:left-[35%] lg:left-[42%]"></button>
+
+		<dialog id="popupMenu" class="bg-transparent text-white text-xl w-full h-full">
+			<section class="absolute top-[40%] left-2/3 -translate-x-1/2 -translate-y-1/2 min-w-60">
+				<div class="flex my-4 p-4 bg-sky-600">
+				<h2 class="font-bold text-2xl">Menu</h2><span id="menuClose" class="text-right text-2xl w-full cursor-pointer">&times;</span>
+			</div>
+			
+			<ul>
+				<li class="bg-sky-600 my-2 flex"><a href="/old/about" class="p-4 w-full">About</a></li>
+				<li class="bg-sky-600 my-2 flex"><a href="/old/projects" class="p-4 w-full">Projects</a></li>
+			</ul>
+			</section>
+			
+		</dialog>
+	</main>
+	
+</MainLayout>
+
+
+<script>
+	const me = document.getElementById('me');
+	const popupMenu : HTMLDialogElement = document.getElementById('popupMenu') as HTMLDialogElement;
+	const menuClose = document.getElementById('menuClose');
+
+	me?.addEventListener("click", ()=>{
+		popupMenu?.showModal();
+	});
+
+	menuClose?.addEventListener("click", ()=>{
+		popupMenu?.close();
+	});
+
+	
+</script>

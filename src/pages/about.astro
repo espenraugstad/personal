@@ -1,0 +1,38 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import TopNav from "../components/TopNav.astro";
+import NavButton from "../components/NavButton.astro";
+---
+
+<MainLayout>
+  <div class="bg-black font-inter">
+    <TopNav current="about" />
+    <main
+      class="bg-black text-white hero flex flex-col items-center justify-center"
+    >
+      <div class="-translate-y-14 flex flex-col items-center justify-center">
+            <h1 class="text-6xl font-black mb-4">About</h1>
+            <p class="my-2">
+            I am a physicist, an educator, and a multimedia technologist. I enjoy
+            coding, designing, and developing things. I also enjoy photography on
+            occasion.
+            </p>
+            <p class="my-2">
+            If you want to know more about my education and work experience, you
+            can download my resume below.
+            </p>
+            <div class="my-4">
+            <NavButton
+                target="/assets/CV_Espen_Raugstad_english.pdf"
+                blank="false"
+            >
+                Resume (en)
+            </NavButton>
+            <NavButton target="/assets/CV_Espen_Raugstad.pdf" blank="false">
+                Resume (no)
+            </NavButton>
+            </div>
+      </div>
+    </main>
+  </div>
+</MainLayout>

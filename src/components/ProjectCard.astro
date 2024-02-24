@@ -1,0 +1,12 @@
+---
+const { title, src,  description, url } = Astro.props;
+---
+<section class="shadow-md m-4 flex flex-col place-content-between">
+    <div class="flex flex-col">
+        <img src={`/images/projects/${src}`} alt="" class="my-4 max-h-80 object-contain    ">
+        <h2 class="text-2xl font-bold self-center my-4">{title}</h2>
+        {description.map((desc) => <p class="m-2">{desc}</p>)}
+    </div>
+
+    <a href={url} target="_blank" class="bg-sky-600 text-white p-4 w-full text-center m-2 self-center">Visit</a>
+</section>

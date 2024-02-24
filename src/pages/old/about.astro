@@ -1,0 +1,42 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+  <main
+    class="w-screen h-screen bg-pink-200 flex flex-col items-center justify-center px-4 text-center"
+  >
+    <h1 class="text-8xl font-black">Hi</h1>
+    <p class="mt-8 mb-2">My name is Espen.</p>
+    <p class="my-2">
+      I am a physicist, an educator, and a multimedia technologist. I enjoy
+      coding, designing, and developing things. I also enjoy photography on
+      occasion.
+    </p>
+    <p class="my-2">
+      If you want to know more about my education and work experience, you can
+      download my resume below.
+    </p>
+    <div class="my-6">
+      <a
+        href="/assets/CV_Espen_Raugstad_english.pdf"
+        class="bg-sky-600 text-white p-4 my-2">Resume (en)</a
+      >
+      <a
+        href="/assets/CV_Espen_Raugstad.pdf"
+        class="bg-sky-600 text-white p-4 my-2">Resume (no)</a
+      >
+    </div>
+    <h2 class="text-4xl font-bold mt-8 mb-4">Let's Connect</h2>
+    <div class="flex my-4">
+        <a href="https://github.com/espenraugstad" target="_blank" class="mx-2"><img src="/images/gh.png" width="48" alt=""></a>
+        <a href="https://www.linkedin.com/in/espen-raugstad/" target="_blank" class="mx-2"><img src="/images/li.png" width="48" alt=""></a>
+        <a href="https://www.instagram.com/espenr81/" target="_blank" class="mx-2"><img src="/images/ig.svg" width="48" alt=""></a>
+    </div>
+    
+    <div class="mt-16 mx-4 w-full flex place-content-between">
+        <a href="/old/">&#8592; Back home</a>
+        <a href="/old/projects">See projects &#8594;</a>
+    </div>
+  </main>
+</MainLayout>
