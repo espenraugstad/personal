@@ -2,7 +2,7 @@
 import NavButton from "./NavButton.astro";
 const { title, src,  description, url } = Astro.props;
 ---
-<section class="shadow-md rounded-md bg-stone-800 m-4 p-4 flex flex-col items-center place-content-between">
+<section class="shadow-lg bg-neutral-100 rounded-md  m-4 p-4 flex flex-col items-center place-content-between">
     <div class="flex flex-col ">
         <img src={`/images/projects/${src}`} alt="" class="my-4 max-h-80 object-contain    ">
         <h2 class="text-2xl font-bold self-center my-4">{title}</h2>

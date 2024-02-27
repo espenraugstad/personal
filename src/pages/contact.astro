@@ -5,25 +5,35 @@ import Button from "../components/Button.astro";
 ---
 
 <MainLayout>
-  <div class="bg-black min-h-screen">
-    <TopNav current="contact"/>
+  <div class="min-h-screen">
+    <TopNav current="contact" />
     <section class="flex flex-col items-center mx-10 pb-8">
-      <h1 class="text-white text-6xl font-black text-center mt-2 mb-8">Contact Me</h1>
-      <section class="text-white">
+      <h1 class="text-6xl font-black text-center mt-4 mb-8">Contact Me</h1>
+      <section class="text-center">
         <p>Please don't hesitate to reach out to me 😊</p>
         <p class="my-4">You can find me on social media here:</p>
         <div class="flex my-4 justify-center">
-            <a href="https://github.com/espenraugstad" target="_blank" class="mx-2"><img src="/images/gh_white.png" width="48" alt=""></a>
-            <a href="https://www.linkedin.com/in/espen-raugstad/" target="_blank" class="mx-2"><img src="/images/li.png" width="48" alt=""></a>
-            <a href="https://www.instagram.com/espenr81/" target="_blank" class="mx-2"><img src="/images/ig.svg" width="48" alt=""></a>
+          <a
+            href="https://github.com/espenraugstad"
+            target="_blank"
+            class="mx-2"><img src="/images/github-mark.png" width="48" alt="" /></a
+          >
+          <a
+            href="https://www.linkedin.com/in/espen-raugstad/"
+            target="_blank"
+            class="mx-2"><img src="/images/li.png" width="48" alt="" /></a
+          >
+          <a
+            href="https://www.instagram.com/espenr81/"
+            target="_blank"
+            class="mx-2"><img src="/images/ig.svg" width="48" alt="" /></a
+          >
         </div>
         <p class="mt-8 mb-4">Or you can send me a message here:</p>
       </section>
       <section class="w-fit px-4 flex flex-col">
         <div class="my-4 flex flex-col items-start">
-          <label class="text-white text-xl font-bold" for="name"
-            >Your name</label
-          >
+          <label class="" for="name">Your name</label>
           <input
             type="text"
             name=""
@@ -32,9 +42,7 @@ import Button from "../components/Button.astro";
           />
         </div>
         <div class="my-4 flex flex-col items-start">
-          <label class="text-white text-xl font-bold" for="email"
-            >Your email</label
-          >
+          <label class="" for="email">Your email</label>
           <input
             type="text"
             name=""
@@ -43,9 +51,7 @@ import Button from "../components/Button.astro";
           />
         </div>
         <div class="my-4 flex flex-col items-start">
-          <label class="text-white text-xl font-bold" for="msg"
-            >Your message</label
-          >
+          <label class="" for="msg">Your message (required)</label>
           <textarea
             name=""
             id="msg"
@@ -60,7 +66,10 @@ import Button from "../components/Button.astro";
   </div>
 </MainLayout>
 
-<dialog id="success" class="w-fit bg-stone-800 p-4 text-white backdrop:backdrop-blur-md rounded-md">
+<dialog
+  id="success"
+  class="w-fit bg-neutral-100 p-4 backdrop:backdrop-blur-md rounded-md"
+>
   <section class="flex flex-col items-center text-center w-full">
     <h2 class="text-2xl font-bold">Message Sent</h2>
     <p class="my-2">Your message has been sent successfully.</p>
@@ -69,44 +78,69 @@ import Button from "../components/Button.astro";
   </section>
 </dialog>
 
-<dialog id="sending" class="w-fit bg-stone-800 p-4 text-white backdrop:backdrop-blur-md rounded-md">
-    <section class="flex flex-col items-center text-center w-full">
-      <h2 class="text-2xl font-bold">Sending Message</h2>
-      <p class="my-2">Please stand by...</p>
-    </section>
-  </dialog>
+<dialog
+  id="sending"
+  class="w-fit bg-neutral-100 p-4 backdrop:backdrop-blur-md rounded-md"
+>
+  <section class="flex flex-col items-center text-center w-full">
+    <h2 class="text-2xl font-bold">Sending Message</h2>
+    <p class="my-2">Please stand by...</p>
+  </section>
+</dialog>
 
-<dialog id="fail" class="w-fit bg-stone-800 p-4 text-white backdrop:backdrop-blur-md rounded-md">
-    <section class="flex flex-col items-center text-center w-full">
-      <h2 class="text-2xl font-bold text-red-200">Something Went Wrong!</h2>
-      <p class="my-2">Your message has not been sent.</p>
-      <p class="my-2">You can e-mail me directly at espen.raugstad@gmail.com or try again.</p>
-      <Button id="closeFail">Ok</Button>
-    </section>
-  </dialog>
+<dialog
+  id="fail"
+  class="w-fit bg-neutral-100 p-4 backdrop:backdrop-blur-md rounded-md"
+>
+  <section class="flex flex-col items-center text-center w-full">
+    <h2 class="text-2xl font-bold text-red-700">Something Went Wrong!</h2>
+    <p class="my-2">Your message has not been sent.</p>
+    <p class="my-2">
+      You can e-mail me directly at espen.raugstad@gmail.com or try again.
+    </p>
+    <Button id="closeFail">Ok</Button>
+  </section>
+</dialog>
+
+<dialog
+  id="invalid"
+  class="w-fit bg-neutral-100 p-4 backdrop:backdrop-blur-md rounded-md"
+>
+  <section class="flex flex-col items-center text-center w-full">
+    <h2 class="text-2xl font-bold text-red-700">Invalid input!</h2>
+    <p class="my-2">Fill out the required fields.</p>
+    <Button id="closeInvalid">Ok</Button>
+  </section>
+</dialog>
 
 <script>
   import emailjs from "@emailjs/browser";
   const name = document.getElementById("name") as HTMLInputElement;
   const email = document.getElementById("email") as HTMLInputElement;
   const msg = document.getElementById("msg") as HTMLInputElement;
-  const sending = document.getElementById('sending') as HTMLDialogElement;
+  const sending = document.getElementById("sending") as HTMLDialogElement;
   const success = document.getElementById("success") as HTMLDialogElement;
-  const fail = document.getElementById('fail') as HTMLDialogElement;
+  const fail = document.getElementById("fail") as HTMLDialogElement;
   const close = document.getElementById("close");
-  const closeFail = document.getElementById('closeFail');
+  const closeFail = document.getElementById("closeFail");
+  const invalid = document.getElementById("invalid") as HTMLDialogElement;
+  const closeInvalid = document.getElementById("closeInvalid");
   const sndBtn = document.getElementById("sndBtn");
 
-  closeFail?.addEventListener("click", ()=>{
+  closeInvalid?.addEventListener("click", () => {
+    invalid.close();
+  });
+
+  closeFail?.addEventListener("click", () => {
     fail.close();
-  })
+  });
 
   close?.addEventListener("click", () => {
     clearForm();
     success.close();
   });
 
-  function clearForm(){
+  function clearForm() {
     name.value = "";
     email.value = "";
     msg.value = "";
@@ -117,29 +151,33 @@ import Button from "../components/Button.astro";
     fail.showModal();
   }); */
   sndBtn?.addEventListener("click", async () => {
-    const templateParams = {
-      from_name: name.value,
-      contact: email.value,
-      message: msg.value,
-    };
-    try {
+    if (msg.value === "") {
+      invalid.showModal();
+    } else {
+      const templateParams = {
+        from_name: name.value,
+        contact: email.value,
+        message: msg.value,
+      };
+
+      try {
         sending.showModal();
-      let res = await emailjs.send(
-        "service_9xz8ufm",
-        "template_xt699wv",
-        templateParams,
-        {
-          publicKey: "FKpe1Es0Ax6-ygANL",
-        }
-      );
-      console.log(res.status);
-      console.log(res.text);
-      sending.close();
-      success.showModal();
-      
-    } catch (err) {
-      console.error(err);
-      fail.showModal();
+        let res = await emailjs.send(
+          "service_9xz8ufm",
+          "template_xt699wv",
+          templateParams,
+          {
+            publicKey: "FKpe1Es0Ax6-ygANL",
+          }
+        );
+        console.log(res.status);
+        console.log(res.text);
+        sending.close();
+        success.showModal();
+      } catch (err) {
+        console.error(err);
+        fail.showModal();
+      }
     }
   });
 </script>

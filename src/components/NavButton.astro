@@ -4,7 +4,7 @@ const { target, blank } = Astro.props;
 
 <button
   data-target={target} data-blank={blank}
-  class="p-4 border border-solid border-amber-700 hover:border-amber-50 bg-amber-500 text-black rounded-md m-2 min-w-24"><slot /></button
+  class="nav-button p-4 border border-solid border-amber-700 hover:border-amber-50 bg-amber-500 text-black rounded-md m-2 min-w-24"><slot /></button
 >
 
 <script>
@@ -12,7 +12,7 @@ const { target, blank } = Astro.props;
     location.href = e.target.dataset.target;
   }); */
 
-  const buttons = document.querySelectorAll("button");
+  const buttons = document.querySelectorAll(".nav-button");
   for(let button of buttons){
     button.addEventListener("click", (e)  => {
        

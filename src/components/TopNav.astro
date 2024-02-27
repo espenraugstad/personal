@@ -3,7 +3,7 @@ const { current } = Astro.props;
 ---
 
 <nav
-  class="w-full px-8 py-4 min-h-fit h-28 flex items-center justify-between text-white"
+  class="w-full px-8 py-4 min-h-fit h-28 flex items-center justify-between"
 >
   <a href="/"
     class="font-inter text-4xl font-black flex flex-col justify-center items-center"
@@ -14,8 +14,25 @@ const { current } = Astro.props;
     </div>
     <div>Rau<span class="text-pink-600">g</span>stad</div>
   </a>
-  <div>
+  <div id="menu" class="hidden lg:flex lg:justify-self-end">
     <ul class="flex">
+      <li class=`${current === "home" ? "active" : ""}`>
+        <a href="/">Home</a>
+      </li>
+      <li class=`${current === "about" ? "active" : ""}`>
+        <a href="/about">About</a>
+      </li>
+      <li class=`${current === "projects" ? "active" : ""}`>
+        <a href="/projects">Projects</a>
+      </li>
+      <li class=`${current === "contact" ? "active" : ""}`>
+        <a href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+  <div id="" class="mobile lg:hidden flex">
+    <button class="flex lg:hidden border-solid border-black border-2 p-4" id="openMobile">MENU</button>
+    <ul id="mobile" class="hidden text-xl flex-col items-center mx-auto w-screen h-screen pt-8 bg-neutral-200 top-32 absolute right-0 z-10">
       <li class=`${current === "home" ? "active" : ""}`>
         <a href="/">Home</a>
       </li>
@@ -33,13 +50,26 @@ const { current } = Astro.props;
 </nav>
 
 <style>
+
   li {
-    @apply p-4  w-40 flex items-center justify-center text-white font-semibold;
+    @apply p-4  w-40 flex items-center justify-center;
   }
   li:hover {
     @apply underline;
   }
   .active {
-    @apply bg-pink-600;
+    @apply underline;
   }
 </style>
+
+<script>
+  const mobile = document.getElementById('mobile');
+  const openMobile = document.getElementById('openMobile');
+  openMobile.onclick = (e)=>{
+    e.preventDefault();
+    mobile.classList.toggle("hidden");
+    mobile.classList.toggle("flex");
+    openMobile.classList.toggle("active");
+    console.log("Yo");
+  }
+</script>
